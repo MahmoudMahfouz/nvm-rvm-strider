@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Mahmoud Mahfouz <mahmoud.mahfouz.zaza@gmail.com>
 
 ADD sv_stdout.conf /etc/supervisor/conf.d/
-ENV STRIDER_VERSION master
+ENV STRIDER_VERSION v1.6.6
 ENV STRIDER_REPO https://github.com/Strider-CD/strider
 
 ENV HOME /home/strider
@@ -37,6 +37,7 @@ RUN chown -R strider:strider /home/strider
 RUN chown -R strider:strider /opt/strider
 RUN ln -s /opt/strider/src/bin/strider /usr/local/bin/strider
 USER strider
+ENV HOME /home/strider
 
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash && \
 	. ~/.nvm/nvm.sh && \
